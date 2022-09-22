@@ -1,16 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import Search from "./src/components/Search";
 
 export default function App() {
+  const [searchQuery, setQuery] = useState("");
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.search}>
-        <Search />
+        <Search setQuery={setQuery} />
       </View>
       <View style={styles.body}>
-        <Text>This is body of the App</Text>
+        <Text>You searching for {searchQuery ? searchQuery : "nothing"}</Text>
       </View>
       <StatusBar style="auto" />
     </SafeAreaView>
